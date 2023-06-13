@@ -71,7 +71,37 @@ Run project as server
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| `id`      | `int` | **Required**. Id of item to fetch |
+
+#### Post supermarket
+
+```bash
+  POST /api/supermarket
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `name`      | `string` | **Required**. Name of new supermarket |
+
+#### Put supermarket
+
+```bash
+  PUT /api/supermarket/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**. Id of item to fetch |
+
+#### Delete supermarket
+
+```bash
+  DELETE /api/supermarket/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**. Id of item to fetch |
 
 
 ## Author
