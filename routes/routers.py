@@ -7,6 +7,11 @@ from services.supermarket import SupermarketService
 
 router = APIRouter()
 
+@router.get("/")
+async def root():
+    return {"message": "Hello World. Welcome to FastAPI!"}
+
+
 @router.get('/api/supermarkets', tags=['Supermarket'], response_model=Response)
 def get_supermarkets():
     db = Session()
