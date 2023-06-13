@@ -9,7 +9,7 @@ Backend project based on python 3.11 with fastapi to publish web microservices w
 Clone the repo
 
 ```bash
-  git clone ...
+  git clone https://github.com/AndresOrozcoDev/market_backend_python.git
 ```
 
 Install virtual environment
@@ -59,13 +59,13 @@ Run project as server
 
 #### Get supermarkets
 
-```http
+```bash
   GET /api/supermarkets
 ```
 
 #### Get supermarket
 
-```http
+```bash
   GET /api/supermarket/${id}
 ```
 
