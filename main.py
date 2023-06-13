@@ -6,11 +6,7 @@ from config.database import engine, Base
 from middlewares.error_handler import ErrorHandler
 
 
-app = FastAPI(
-    title = 'Market Porject',
-    description = 'Endpoints for Market project backend',
-    version = '1.0'
-)
+app = FastAPI()
 
 app.add_middleware(ErrorHandler)
 app.include_router(router)
