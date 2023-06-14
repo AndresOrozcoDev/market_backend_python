@@ -8,12 +8,15 @@ class Supermarket(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    product = relationship('Product', back_populates='supermarket')
+
 
 class Category(Base):
     __tablename__ = 'category'
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    product = relationship('Product', back_populates='category')
 
 
 class Product(Base):
@@ -21,8 +24,10 @@ class Product(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    price = Column(Integer)
     value = Column(Integer)
     unit = Column(String)
-    supermarket_id = Column(Integer, ForeignKey('supermarket.id'))
-    category_id = Column(Integer, ForeignKey('category.id'))
-
+    supermarket_id = Column(Integer, ForeignKey('supermarket.id', ondelete='CASCADE'))
+    supermarket = relationship('Supermarket', back_populates='product')
+    category_id = Column(Integer, ForeignKey('category.id', ondelete='CASCADE'))
+    category = relationship('Category', back_populates='product')

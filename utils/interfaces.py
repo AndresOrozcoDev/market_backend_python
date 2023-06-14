@@ -13,7 +13,8 @@ class Category(BaseModel):
 
 class Product(BaseModel):
     name: str
+    price: int
     value: int
     unit: str
-    supermarket_name: str
-    category_name: str
+    supermarket_id: int
+    category_id: int
