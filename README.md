@@ -1,7 +1,7 @@
 
 # Market - Backend Project
 
-Backend project based on python 3.11 with fastapi to publish web microservices with CRUD for supermarkets and products.
+Backend project based on [Python](https://www.python.org/) 3.11.3 with [FastAPI](https://fastapi.tiangolo.com/) to publish web microservices with CRUD for supermarkets and products.
 
 
 ## Installating
@@ -157,7 +157,7 @@ Run project as server
 
 ## Installating
 
-For unit tests, pyTest and Httpx are used, for the execution of said tests, execute the following command
+For unit tests, [pyTest](https://docs.pytest.org/en/7.3.x/) and [Httpx](https://www.python-httpx.org/) are used, for the execution of said tests, execute the following command
 
 ```bash
   pytest
