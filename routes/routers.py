@@ -1,13 +1,16 @@
 from fastapi import APIRouter, Body, Query
-from config.database import Session
-from utils.interfaces import Response, Product
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+
+from config.database import Session
+from utils.interfaces import Response, Product
 from services.supermarket import SupermarketService
 from services.category import CategoryService
 from services.product import ProductService
 
+
 router = APIRouter()
+
 
 @router.get("/")
 async def root():
@@ -19,7 +22,6 @@ async def get_supermarkets():
     db = Session()
     result = SupermarketService(db).get_supermarkets()
     return JSONResponse(status_code=200, content={'message': 'Supermarkets list', 'data':jsonable_encoder(result)})
-
 
 @router.get('/api/supermarket/{id}', tags=['Supermarket'], response_model=Response)
 async def get_supermarket_by_id(id: int):

@@ -1,5 +1,5 @@
 from models.schema import Category as CategoryModel
-from utils.interfaces import Category as CategoryInterface
+
 
 class CategoryService():
     

@@ -1,5 +1,5 @@
 from models.schema import Supermarket as SupermarketModel
-from utils.interfaces import Supermarket as SupermarketInterface
+
 
 class SupermarketService():
     

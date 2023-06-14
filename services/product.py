@@ -1,8 +1,8 @@
+from services.category import CategoryService
 from models.schema import Product as ProductModel
+from services.supermarket import SupermarketService
 from utils.interfaces import Product as ProductInterface
 
-from services.supermarket import SupermarketService
-from services.category import CategoryService
 
 class ProductService():
     
