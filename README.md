@@ -57,7 +57,7 @@ Run project as server
 
 ## API Reference
 
-For the consumption of web services, an 'api key' is necessary for security.
+For the consumption of web services an 'api-key' header is required for security.
 
 ## Tag Supermarket
 
