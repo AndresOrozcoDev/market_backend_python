@@ -57,6 +57,8 @@ Run project as server
 
 ## API Reference
 
+For the consumption of web services, an 'api key' is necessary for security.
+
 ## Tag Supermarket
 
 #### Get supermarkets
