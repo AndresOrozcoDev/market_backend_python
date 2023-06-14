@@ -57,10 +57,12 @@ Run project as server
 
 ## API Reference
 
+## Tag Supermarket
+
 #### Get supermarkets
 
 ```bash
-  GET /api/supermarkets
+  GET /api/supermarket/all
 ```
 
 #### Get supermarket
@@ -91,7 +93,7 @@ Run project as server
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Required**. Id of item to fetch |
+| `name`      | `string` | **Required**. Id of item to fetch |
 
 #### Delete supermarket
 
@@ -102,6 +104,64 @@ Run project as server
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Required**. Id of item to fetch |
+
+
+## Tag Category
+
+#### Get categories
+
+```bash
+  GET /api/category/all
+```
+
+#### Get category
+
+```bash
+  GET /api/category/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**. Id of item to fetch |
+
+#### Post category
+
+```bash
+  POST /api/category
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `name`      | `string` | **Required**. Name of new category |
+
+#### Put category
+
+```bash
+  PUT /api/category/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `name`      | `string` | **Required**. Id of item to fetch |
+
+#### Delete category
+
+```bash
+  DELETE /api/category/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**. Id of item to delete |
+
+
+## Installating
+
+For unit tests, pyTest and Httpx are used, for the execution of said tests, execute the following command
+
+```bash
+  pytest
+```
 
 
 ## Author
