@@ -6,4 +6,14 @@ class Response(BaseModel):
     data: list
 
 class Supermarket(BaseModel):
-    name: str = Field(max_length=50)
+    name: str
+
+class Category(BaseModel):
+    name: str
+
+class Product(BaseModel):
+    name: str
+    value: int
+    unit: str
+    supermarket_name: str
+    category_name: str
