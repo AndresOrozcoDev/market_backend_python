@@ -135,3 +135,11 @@ async def delete_product(id: int, api_key: str = Depends(validate_api_key)):
     if not result:
         return JSONResponse(status_code=404, content={'message': 'Not found product'})
     return JSONResponse(status_code=200, content={'message': 'Product deleted'})
+
+
+
+@router.get('/api/compare/{name}', tags=['Over'], response_model=Response)
+async def get_compare(name: str, api_key: str = Depends(validate_api_key)):
+    db = Session()
+    result = ProductService(db).compare_product(name)
+    return JSONResponse(status_code=200, content={'message': 'Products list', 'data':jsonable_encoder(result)})

@@ -66,3 +66,7 @@ class ProductService():
             self.db.query(ProductModel).filter(ProductModel.id == id).delete()
             self.db.commit()
             return True
+        
+    def compare_product(self, name: str):
+        result = self.db.query(ProductModel).filter(ProductModel.name == name).all()
+        return result
