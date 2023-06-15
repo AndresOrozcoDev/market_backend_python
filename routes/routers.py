@@ -1,3 +1,6 @@
+import os
+
+from dotenv import load_dotenv
 from fastapi import APIRouter, Body, Query, HTTPException, Depends, Header
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
@@ -13,7 +16,8 @@ router = APIRouter()
 
 
 async def validate_api_key(api_key: str = Header()):
-    if api_key != 'cabezonde14cmcurvohaciaabajo':
+    load_dotenv()
+    if api_key != os.getenv('API-KEY'):
         raise HTTPException(status_code = 401, detail = "API Key inválida")
     
 
