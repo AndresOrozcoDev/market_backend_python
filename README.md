@@ -9,7 +9,7 @@ Base url
 ```
 
 
-## Installating
+## 🧰 Installating
 
 Clone the repo
 
@@ -60,7 +60,7 @@ Run project as server
 ```
 
 
-## API Reference
+## 📞 API Reference
 
 For the consumption of web services an 'api-key' header is required for security.
 
@@ -162,7 +162,7 @@ For the consumption of web services an 'api-key' header is required for security
 | `id`      | `int` | **Required**. Id of item to delete |
 
 
-## Installating
+## 🛠️ Testing
 
 For unit tests, [pyTest](https://docs.pytest.org/en/7.3.x/) and [Httpx](https://www.python-httpx.org/) are used, for the execution of said tests, execute the following command
 
@@ -171,6 +171,6 @@ For unit tests, [pyTest](https://docs.pytest.org/en/7.3.x/) and [Httpx](https://
 ```
 
 
-## Author
+## ✍️ Author
 
 - [@AndresOrozcoDev](https://github.com/AndresOrozcoDev)
