@@ -10,6 +10,7 @@ Clone the repo
 
 ```bash
   git clone https://github.com/AndresOrozcoDev/market_backend_python.git
+  cd market_backend_python
 ```
 
 Install virtual environment
