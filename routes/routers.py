@@ -10,6 +10,7 @@ from utils.interfaces import Response, Product
 from services.supermarket import SupermarketService
 from services.category import CategoryService
 from services.product import ProductService
+from services.user import UserService
 
 
 router = APIRouter()
@@ -144,6 +145,10 @@ async def delete_product(id: int, api_key: str = Depends(validate_api_key)):
 
 @router.get('/api/compare/{name}', tags=['Over'], response_model=Response)
 async def get_compare(name: str, api_key: str = Depends(validate_api_key)):
+    return JSONResponse(status_code=200, content={'message': 'Building services'})
+
+@router.post('/api/forgetPassword', tags=['Over'], response_model=Response)
+async def forget_password(email: str = Query(), api_key: str = Depends(validate_api_key)):
     db = Session()
-    result = ProductService(db).compare_product(name)
-    return JSONResponse(status_code=200, content={'message': 'Products list', 'data':jsonable_encoder(result)})
+    result = UserService(db).post_forgetPassword(email)
+    return JSONResponse(status_code=200, content={'message': result})
