@@ -1,4 +1,5 @@
 from models.schema import User as UserModel
+from utils.interfaces import User as UserInterface
 from utils.functions import send_email, generate_password
 
 
@@ -16,15 +17,20 @@ class UserService():
     def get_user_by_id(self, id: int):
         result = self.db.query(UserModel).filter(UserModel.id == id).first()
         return result
+    
+
+    def get_user_by_email(self, email: int):
+        result = self.db.query(UserModel).filter(UserModel.email == email).first()
+        return result
 
 
-    def get_user_login(self, email: str, password: str):
-        result = self.db.query(UserModel).filter(UserModel.email == email and UserModel.password == password).first()
+    def post_login(self, user: UserInterface):
+        result = self.db.query(UserModel).filter(UserModel.email == user.email and UserModel.password == user.password).first()
         return result
     
 
-    def create_user(self, email: str, password: str):
-        new = UserModel(**{"email": email, "password": password})
+    def create_user(self, user: UserInterface):
+        new = UserModel(**{"email": user.email, "password": user.password})
         self.db.add(new)
         self.db.commit()
         return 
@@ -52,8 +58,16 @@ class UserService():
         
 
     def post_forgetPassword(self, email: str):
-        new_password = generate_password()
-        subject = 'New Password'
-        message = 'Your new password is: '
-        result = send_email(email, subject, message, new_password)
-        return result
+        exists = self.get_user_by_email(email)
+        if not exists:
+            return 'Not found user'
+        else:
+            try:
+                new_password = generate_password()
+                send_email(email, 'New Password', 'Your new password is: ', new_password)
+            except Exception as e:
+                return f"Error {e}" 
+            finally:  
+                exists.password = new_password
+                self.db.commit()
+                return f"Your new password {new_password} was send your email."

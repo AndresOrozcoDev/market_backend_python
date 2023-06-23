@@ -25,7 +25,7 @@ async def validate_api_key(api_key: str = Header()):
 
 @router.get("/")
 async def root(api_key: str = Depends(validate_api_key)):
-    return {"message": "Hello World. Welcome to Market Backen Project with Python and FastAPI!. Please add '/docs' to url"}
+    return {"message": "Welcome to Market Backend Project with Python and FastAPI!. Please add '/docs' to url"}
 
 
 
@@ -67,6 +67,7 @@ async def delete_supermarket(id: int, api_key: str = Depends(validate_api_key)):
 
 
 
+
 @router.get('/api/category/all', tags=['Category'], response_model=Response)
 async def get_categories(api_key: str = Depends(validate_api_key)):
     db = Session()
@@ -102,6 +103,7 @@ async def delete_category(id: int, api_key: str = Depends(validate_api_key)):
     if not result:
         return JSONResponse(status_code=404, content={'message': 'Not found category'})
     return JSONResponse(status_code=200, content={'message': 'Category deleted'})
+
 
 
 
@@ -142,6 +144,8 @@ async def delete_product(id: int, api_key: str = Depends(validate_api_key)):
     return JSONResponse(status_code=200, content={'message': 'Product deleted'})
 
 
+
+
 @router.get('/api/user/all', tags=['User'], response_model=Response)
 async def get_users(api_key: str = Depends(validate_api_key)):
     db = Session()
@@ -156,11 +160,12 @@ async def get_user_by_id(id: int, api_key: str = Depends(validate_api_key)):
         return JSONResponse(status_code=404, content={'message': 'Not found user', 'data':jsonable_encoder(result)})
     return JSONResponse(status_code=200, content={'message': 'Get user success', 'data':jsonable_encoder(result)})
 
+
 @router.post('/api/user', tags=['User'], response_model=Response)
 async def create_user(user: User = Body(), api_key: str = Depends(validate_api_key)):
     db = Session()
-    result = UserService(db).create_user(user)
-    return JSONResponse(status_code=200, content={'message': result})
+    UserService(db).create_user(user)
+    return JSONResponse(status_code=200, content={'message': jsonable_encoder(user)})
 
 @router.put('/api/product/{id}', tags=['User'])
 async def update_user(id: int, password: str = Body(), api_key: str = Depends(validate_api_key)):
@@ -179,6 +184,8 @@ async def delete_user(id: int, api_key: str = Depends(validate_api_key)):
     return JSONResponse(status_code=200, content={'message': 'User deleted'})
 
 
+
+
 @router.get('/api/compare/{name}', tags=['Over'], response_model=Response)
 async def get_compare(name: str, api_key: str = Depends(validate_api_key)):
     return JSONResponse(status_code=200, content={'message': 'Building services'})
@@ -188,3 +195,9 @@ async def forget_password(email: str = Query(), api_key: str = Depends(validate_
     db = Session()
     result = UserService(db).post_forgetPassword(email)
     return JSONResponse(status_code=200, content={'message': jsonable_encoder(result)})
+
+@router.post('/api/login', tags=['Over'], response_model=Response)
+async def post_login(user: User = Body(), api_key: str = Depends(validate_api_key)):
+    db = Session()
+    result = UserService(db).post_login(user)
+    return JSONResponse(status_code=200, content={'message': 'Get user success', 'data':jsonable_encoder(result)})
