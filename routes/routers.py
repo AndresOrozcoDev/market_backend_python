@@ -151,4 +151,4 @@ async def get_compare(name: str, api_key: str = Depends(validate_api_key)):
 async def forget_password(email: str = Query(), api_key: str = Depends(validate_api_key)):
     db = Session()
     result = UserService(db).post_forgetPassword(email)
-    return JSONResponse(status_code=200, content={'message': result})
+    return JSONResponse(status_code=200, content={'message': jsonable_encoder(result)})
