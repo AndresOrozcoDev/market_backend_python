@@ -1,12 +1,18 @@
 
 import os
 import smtplib
+import random
+import string
 
 from dotenv import load_dotenv
 from email.mime.text import MIMEText
 
+
 def generate_password():
-    return 'te_quiero_hacer_el_amor_Yita'
+    characters = string.ascii_letters + string.digits
+    randomStr = ''.join(random.choice(characters) for _ in range(8))
+    return randomStr
+
 
 def send_email(email_to: str, subject: str, text: str, new_password: str = None):
 

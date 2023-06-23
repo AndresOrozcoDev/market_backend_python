@@ -3,6 +3,14 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, ForeignKey
 
 
+class User(Base):
+    __tablename__ = 'user'
+
+    id = Column(Integer, primary_key=True)
+    email = Column(String)
+    password = Column(String)
+
+
 class Supermarket(Base):
     __tablename__ = 'supermarket'
 
