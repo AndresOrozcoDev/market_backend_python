@@ -1,7 +1,7 @@
-from services.category import CategoryService
-from models.schema import Product as ProductModel
-from services.supermarket import SupermarketService
-from utils.interfaces import Product as ProductInterface
+from app.services.category import CategoryService
+from app.db.models import Product as ProductModel
+from app.services.supermarket import SupermarketService
+from app.api.interfaces.interfaces import Product as ProductInterface
 
 
 class ProductService():

@@ -2,13 +2,14 @@ import uvicorn
 
 from fastapi import FastAPI, Depends
 
-from routers.user import user
-from routers.over import over
-from routers.product import product
-from routers.category import category
-from routers.supermarket import supermarket
-from config.database import engine, Base
+from app.api.routers.user import user
+from app.api.routers.over import over
+from app.api.routers.product import product
+from app.api.routers.category import category
+from app.api.routers.supermarket import supermarket
+
 from dependencies import validate_api_key
+from app.db.database import engine, Base
 from app.utils.middlewares.error_handle import ErrorHandler
 
 

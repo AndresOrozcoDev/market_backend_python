@@ -1,4 +1,4 @@
-from models.schema import Category as CategoryModel
+from app.db.models import Category as CategoryModel
 
 
 class CategoryService():

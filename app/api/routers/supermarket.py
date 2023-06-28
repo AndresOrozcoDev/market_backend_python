@@ -2,9 +2,9 @@ from fastapi import APIRouter, Query, Depends
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
-from config.database import Session
-from utils.interfaces import Response
-from services.supermarket import SupermarketService
+from app.db.database import Session
+from app.api.interfaces.interfaces import Response
+from app.services.supermarket import SupermarketService
 from dependencies import validate_api_key
 
 

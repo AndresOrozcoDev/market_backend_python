@@ -1,9 +1,10 @@
-from models.schema import User as UserModel
-from utils.interfaces import User as UserInterface
-from utils.functions import send_email, generate_password
+from app.db.models import User as UserModel
+from app.api.interfaces.interfaces import User as UserInterface
+from app.utils.shared.functions import send_email, generate_password
 
 
 class UserService():
+    
     
     def __init__(self, db) -> None:
         self.db = db

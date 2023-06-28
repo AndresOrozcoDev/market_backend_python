@@ -1,4 +1,4 @@
-from models.schema import Supermarket as SupermarketModel
+from app.db.models import Supermarket as SupermarketModel
 
 
 class SupermarketService():
