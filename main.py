@@ -9,11 +9,11 @@ from routers.category import category
 from routers.supermarket import supermarket
 from config.database import engine, Base
 from dependencies import validate_api_key
-from middlewares.error_handler import ErrorHandler
+from app.utils.middlewares.error_handle import ErrorHandler
 
 
 app = FastAPI(
-    # dependencies=[Depends(validate_api_key)],
+    dependencies=[Depends(validate_api_key)],
     title='Market project backend',
     version='1.0.0'
 )
