@@ -13,7 +13,7 @@ from middlewares.error_handler import ErrorHandler
 
 
 app = FastAPI(
-    dependencies=[Depends(validate_api_key)],
+    # dependencies=[Depends(validate_api_key)],
     title='Market project backend',
     version='1.0.0'
 )

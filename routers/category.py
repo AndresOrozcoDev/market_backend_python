@@ -9,17 +9,19 @@ from dependencies import validate_api_key
 
 
 category = APIRouter(
+    prefix="/category",
+    tags=["Category"],
     dependencies=[Depends(validate_api_key)]
 )
 
 
-@category.get('/api/category/all', tags=['Category'], response_model=Response)
+@category.get('/all', response_model=Response)
 async def get_categories():
     db = Session()
     result = CategoryService(db).get_categories()
     return JSONResponse(status_code=200, content={'message': 'Categories list', 'data':jsonable_encoder(result)})
 
-@category.get('/api/category/{id}', tags=['Category'], response_model=Response)
+@category.get('/{id}', response_model=Response)
 async def get_category_by_id(id: int):
     db = Session()
     result = CategoryService(db).get_category_by_id(id)
@@ -27,13 +29,13 @@ async def get_category_by_id(id: int):
         return JSONResponse(status_code=404, content={'message': 'Not found category', 'data':jsonable_encoder(result)})
     return JSONResponse(status_code=200, content={'message': 'Get category success', 'data':jsonable_encoder(result)})
 
-@category.post('/api/category', tags=['Category'], response_model=Response)
+@category.post('', response_model=Response)
 async def create_category(name: str = Query()):
     db = Session()
     CategoryService(db).create_category(name)
-    return JSONResponse(status_code=200, content={'message': 'category created', 'data':jsonable_encoder(name)})
+    return JSONResponse(status_code=200, content={'message': 'Category created', 'data':jsonable_encoder(name)})
 
-@category.put('/api/category/{id}', tags=['Category'])
+@category.put('/{id}')
 async def update_category(id: int, name: str = Query(), ):
     db = Session()
     result = CategoryService(db).update_category(id, name)
@@ -41,7 +43,7 @@ async def update_category(id: int, name: str = Query(), ):
         return JSONResponse(status_code=404, content={'message': 'Not found category'})
     return JSONResponse(status_code=200, content={'message': 'Category updated'})
 
-@category.delete('/api/category/{id}', tags=['Category'])
+@category.delete('/{id}')
 async def delete_category(id: int):
     db = Session()
     result = CategoryService(db).delete_category(id)
