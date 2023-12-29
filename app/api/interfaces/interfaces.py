@@ -5,10 +5,6 @@ class Response(BaseModel):
     message: str
     data: list
 
-class User(BaseModel):
-    email: str
-    password: str
-
 class Supermarket(BaseModel):
     name: str
 
