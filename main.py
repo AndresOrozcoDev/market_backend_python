@@ -2,6 +2,7 @@ import uvicorn
 
 from fastapi import FastAPI, Depends
 from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routers.product import product
 from app.api.routers.category import category
@@ -14,6 +15,14 @@ from app.utils.middlewares.error_handle import ErrorHandler
 app = FastAPI(
     title='Market project backend',
     version='1.0.0'
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
