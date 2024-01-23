@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Query, Depends
+from fastapi import APIRouter, Query, Depends, Body
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
@@ -30,7 +30,7 @@ async def get_category_by_id(id: int):
     return JSONResponse(status_code=200, content={'message': 'Get category success', 'data':jsonable_encoder(result)})
 
 @category.post('', response_model=Response)
-async def create_category(name: str = Query()):
+async def create_category(name: str = Body()):
     db = Session()
     CategoryService(db).create_category(name)
     return JSONResponse(status_code=200, content={'message': 'Category created', 'data':jsonable_encoder(name)})

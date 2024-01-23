@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Query, Depends
+from fastapi import APIRouter, Query, Depends, Body
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
@@ -30,7 +30,7 @@ async def get_supermarket_by_id(id: int):
     return JSONResponse(status_code=200, content={'message': 'Get Supermarket success', 'data':jsonable_encoder(result)})
 
 @supermarket.post('', response_model=Response)
-async def create_supermarket(name: str = Query()):
+async def create_supermarket(name: str = Body()):
     db = Session()
     SupermarketService(db).create_supermarket(name)
     return JSONResponse(status_code=200, content={'message': 'Supermarket created', 'data': jsonable_encoder(name)})
