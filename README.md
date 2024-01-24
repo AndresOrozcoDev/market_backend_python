@@ -1,7 +1,7 @@
 
 # Market - Backend Project
 
-Backend project based on [Python](https://www.python.org/) 3.11.3 with [FastAPI](https://fastapi.tiangolo.com/) to publish web microservices with CRUD for supermarkets, categories and products. Base url: https://marketbackendpython-production.up.railway.app/
+Backend project based on [Python](https://www.python.org/) 3.11.3 with [FastAPI](https://fastapi.tiangolo.com/) to publish web microservices with CRUD for supermarkets, categories and products.
 
 
 ## 🧰 Installating
@@ -103,7 +103,7 @@ For the consumption of web services an 'api-key' header is required for security
 
 | Name | Parameter | Type     | Description                       |
 | :-------- | :-------- | :------- | :-------------------------------- |
-| `id`      | Path      | `in` | **Required**. Id of supermarket to fetch |
+| `id`      | Path      | `int` | **Required**. Id of supermarket to fetch |
 
 
 ## Tag Category
@@ -120,9 +120,9 @@ For the consumption of web services an 'api-key' header is required for security
   GET /api/category/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Required**. Id of item to fetch |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `id`      | Path      | `int` | **Required**. Id of category to fetch |
 
 #### Post category
 
@@ -130,9 +130,9 @@ For the consumption of web services an 'api-key' header is required for security
   POST /api/category
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `name`      | `string` | **Required**. Name of new category |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `name`      | Body      | `string` | **Required**. Name of new category |
 
 #### Put category
 
@@ -140,9 +140,10 @@ For the consumption of web services an 'api-key' header is required for security
   PUT /api/category/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `name`      | `string` | **Required**. Id of item to fetch |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `id`      | Path      | `int` | **Required**. Id of category to fetch |
+| `name`      | Body      | `string` | **Required**. Name of update category |
 
 #### Delete category
 
@@ -150,9 +151,9 @@ For the consumption of web services an 'api-key' header is required for security
   DELETE /api/category/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Required**. Id of item to delete |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `id`      | Path      | `int` | **Required**. Id of category to fetch |
 
 
 ## 📌 Model
