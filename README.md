@@ -7,50 +7,46 @@ Backend project based on [Python](https://www.python.org/) 3.11.3 with [FastAPI]
 ## 🧰 Installating
 
 Clone the repo
-
 ```bash
   git clone https://github.com/AndresOrozcoDev/market_backend_python.git
+```
+
+Go to the project directory
+```bash
   cd market_backend_python
 ```
 
 Install virtual environment
-
 ```bash
   pip install virtualenv
 ```
 
 Create virtual environment
-
 ```bash
   python -m venv env
 ```
 
 Activate virtual environment
-
 ```bash
   env\Scripts\activate
 ```
 
 Install requirements.txt file
-
 ```bash
   pip install -r requirements.txt
 ```
 
 Create requirements.txt file
-
 ```bash
   pip freeze > requirements.txt
 ```
 
 Run the project
-
 ```bash
   py main.py
 ```
 
 Run project as server
-
 ```bash
   uvicorn main:app --reload
 ```
@@ -156,6 +152,11 @@ For the consumption of web services an 'api-key' header is required for security
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Required**. Id of item to delete |
+
+
+## 📌 Model
+
+![Modelo Entidad Relacion](./app/templates/sources/modeloEntidadRelacion.png)
 
 
 ## 🛠️ Testing

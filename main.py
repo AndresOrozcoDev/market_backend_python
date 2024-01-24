@@ -1,7 +1,8 @@
 import uvicorn
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Request
 from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routers.product import product
@@ -25,10 +26,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+templates = Jinja2Templates(directory="./app/templates")
+
 
 @app.get("/")
-async def root():
-    return HTMLResponse('<h2>Welcome to Market Backend Project with Python and FastAPI!.</h2>')
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 app.add_middleware(ErrorHandler)
