@@ -80,9 +80,9 @@ For the consumption of web services an 'api-key' header is required for security
   POST /api/supermarket
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `name`      | `string` | **Required**. Name of new supermarket |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `name`      | Body      | `string` | **Required**. Name of new supermarket |
 
 #### Put supermarket
 
@@ -90,9 +90,10 @@ For the consumption of web services an 'api-key' header is required for security
   PUT /api/supermarket/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `name`      | `string` | **Required**. Id of item to fetch |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `id`      | Path      | `int` | **Required**. Id of supermarket to fetch |
+| `name`      | Body      | `string` | **Required**. Name of update supermarket |
 
 #### Delete supermarket
 
@@ -100,9 +101,9 @@ For the consumption of web services an 'api-key' header is required for security
   DELETE /api/supermarket/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Required**. Id of item to fetch |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `id`      | Path      | `in` | **Required**. Id of supermarket to fetch |
 
 
 ## Tag Category
