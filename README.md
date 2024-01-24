@@ -70,9 +70,9 @@ For the consumption of web services an 'api-key' header is required for security
   GET /api/supermarket/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Required**. Id of item to fetch |
+| Name | Parameter | Type     | Description                       |
+| :-------- | :-------- | :------- | :-------------------------------- |
+| `id`      | Path      | `int` | **Required**. Id of supermarket to fetch |
 
 #### Post supermarket
 
